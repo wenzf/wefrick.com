@@ -85,6 +85,39 @@ export default function Stuff() {
                 </section>
             ) : null}
 
+            {exp === 'wefrick' ? (
+                <section className="padding05rem radius025rem readable sec">
+                    <NavLink to={`/${STUFF}`} className="a_2"><ArrowLeftIconSVG aria-label="Back to overview page" width={24} height={24} /></NavLink>
+                    <h2>this.self</h2>
+                    <p>My personal homepage. With a interative implementation of Conway{"'"}s Game of Life in the background.</p>
+                    <table className="o_table">
+                        <caption>Summary</caption>
+                        <tbody>
+                            <tr>
+                                <th>{TF_URL}</th>
+                                <td><Link className="a_2" to="https://wefrick.com">wefrick.com</Link></td>
+                            </tr>
+                            <tr>
+                                <th>{TF_TYPE}</th>
+                                <td>Portfolio</td>
+                            </tr>
+                            <tr>
+                                <th>{TF_DOMAIN_HISTORY}</th>
+                                <td>{TF_NEW_DOMAIN}</td>
+                            </tr>
+                            <tr>
+                                <th>{TF_TIME}</th>
+                                <td>September 2024</td>
+                            </tr>
+                            <tr>
+                                <th>Code</th>
+                                <td><Link className="a_2" to="https://github.com/wenzf/wefrick.com">Github</Link></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            ) : null}
+
             {exp === 'inzh' ? (
                 <section className="padding05rem radius025rem readable sec">
                     <NavLink to={`/${STUFF}`} className="a_2"><ArrowLeftIconSVG aria-label="Back to overview page" width={24} height={24} /></NavLink>

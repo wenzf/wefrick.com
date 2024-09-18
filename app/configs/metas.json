@@ -16,6 +16,10 @@
         "d": "A selection of prototypes and experiments built with React / Remix, primarily to learn about search engine indexing and the impact of code on search performance."
     },
     "stuff_items": {
+        "wefrick": {
+            "t": "wefrick.com",
+            "d": "My personal homepage. And a implementation of Conway's Game of Life on 19x19 tiles."
+        },
         "inzh": {
             "t": "In Zürich",
             "d": "A web experiment using open Government Data of Zurich (Switzerland) on touristic places and the Cantonal Council."

@@ -1,7 +1,7 @@
 # wefrick.com
-- [https://wefrick.com] (wefrick.com)
+- [wefrick.com](https://wefrick.com)
 - minimalistic personal website built with Remix
-- [https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life] (Conway's Game of Life) on the main page
+- [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) on the main page
 
 
 ## Game of Life implementation
