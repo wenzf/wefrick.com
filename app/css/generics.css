@@ -1,0 +1,19 @@
+.padding05rem {
+    padding: 0.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap1rem {
+    gap: 1rem;
+}
+
+.radius025rem {
+    border-radius: 0.25rem;
+}
+
+strong {
+    font-weight: 500;
+}

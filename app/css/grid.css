@@ -1,0 +1,129 @@
+.allscreen {
+  height: 100vmax;
+  width: 100vmax;
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.limit {
+  overflow: hidden;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.all_good {
+  width: 100vmax;
+  height: 100vmax;
+}
+
+.all_good rect {
+  height: 8.5px;
+  width: 9.5px;
+  stroke-width: 0.25px;
+  fill: var(--gray2);
+  transition: fill 1.25s;
+  will-change: fill;
+}
+
+.all_good rect.a {
+  fill: var(--gray4);
+}
+
+.all_good.touch_me rect:focus-within,
+.all_good.touch_me rect:hover {
+  fill: var(--prim9);
+  cursor: pointer;
+}
+
+.all_good.touch_me rect:active {
+  fill: var(--prim10);
+}
+
+.all_good.touch_me rect.a {
+
+  animation: changeTile 1.7s;
+}
+
+
+@keyframes changeTile {
+  0% {
+    fill: var(--gray2);
+  }
+
+  20% {
+    fill: var(--gray7);
+  }
+
+  100% {
+    fill: var(--gray4);
+  }
+}
+
+.all_good.touch_me rect.a:hover {
+  cursor: pointer;
+  fill: var(--gray1);
+}
+
+
+.all_good .xbw circle {
+  fill: var(--gray10);
+  cursor: pointer;
+}
+
+/*
+
+@media screen and (max-width: 1299px) {
+  .blog .all_good .xbw circle {
+    display: none;
+  }
+}
+
+*/
+
+.all_good .xbw:focus {
+  outline: none;
+}
+
+.all_good .xbw:hover rect.y {
+  fill: var(--gray11);
+  border: none;
+}
+
+.all_good .xbw:focus rect.y {
+  fill: var(--gray12);
+}
+
+.all_good .xbw:focus circle,
+.all_good .xbw:hover circle {
+  fill: var(--gray2);
+  transition: fill 0.3s;
+}
+
+
+.p_i {
+  animation: 2s cracks;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  fill: transparent;
+  stroke: var(--prim9);
+  stroke-width: 0.5px;
+}
+
+@keyframes cracks {
+  from {
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    opacity: 1;
+    stroke: var(--prim5);
+  }
+
+  to {
+    stroke-dasharray: 450;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    stroke: var(--gray4);
+  }
+}

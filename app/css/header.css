@@ -1,0 +1,7 @@
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--graysurface);
+    border-bottom-left-radius: 0.25rem;
+}

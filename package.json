@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev --manual -c \"arc sandbox -e testing\"",
+    "dev": "PORT=4444 remix dev --manual -c \"arc sandbox -e testing\"",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "cross-env NODE_ENV=production arc sandbox",
     "typecheck": "tsc"
@@ -16,10 +16,12 @@
     "@remix-run/node": "^2.12.0",
     "@remix-run/react": "^2.12.0",
     "cross-env": "^7.0.3",
+    "csp-header": "^5.2.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
     "@architect/architect": "^10.12.1",

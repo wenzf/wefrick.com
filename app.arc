@@ -1,8 +1,10 @@
 @app
-remix-architect-app
+wefri4
 
 @aws
 runtime nodejs18.x
+  region eu-central-1
+  timeout 10
 # concurrency 1
 # memory 1152
 # profile default
@@ -19,3 +21,8 @@ plugin-remix
   src plugin-remix.js
 
 @static
+  compression true
+
+@tables
+gridb
+  pk *String  # userId lang

@@ -5,12 +5,14 @@
  */
 
 import { PassThrough } from "node:stream";
-
+import crypto from 'node:crypto';
 import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { NonceContext } from "./utils/provider/NonceContext";
+import { addSecurityHeaders, sanitizeHeaders } from "./utils/csp/securityHeaders";
 
 const ABORT_DELAY = 5_000;
 
@@ -26,17 +28,17 @@ export default function handleRequest(
 ) {
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      )
+      request,
+      responseStatusCode,
+      responseHeaders,
+      remixContext
+    )
     : handleBrowserRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      );
+      request,
+      responseStatusCode,
+      responseHeaders,
+      remixContext
+    );
 }
 
 function handleBotRequest(
@@ -45,14 +47,17 @@ function handleBotRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+  const cspNonce = crypto.randomBytes(16).toString('hex');
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <RemixServer
-        context={remixContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
+      <NonceContext.Provider value={cspNonce}>
+        <RemixServer
+          context={remixContext}
+          url={request.url}
+          abortDelay={ABORT_DELAY}
+        />
+      </NonceContext.Provider>,
       {
         onAllReady() {
           shellRendered = true;
@@ -60,6 +65,12 @@ function handleBotRequest(
           const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
+
+          if (process.env.NODE_ENV === 'production') {
+            addSecurityHeaders(responseHeaders, cspNonce);
+            sanitizeHeaders(responseHeaders)
+          }
+
 
           resolve(
             new Response(stream, {
@@ -95,14 +106,17 @@ function handleBrowserRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+  const cspNonce = crypto.randomBytes(16).toString('hex');
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <RemixServer
-        context={remixContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
+      <NonceContext.Provider value={cspNonce}>
+        <RemixServer
+          context={remixContext}
+          url={request.url}
+          abortDelay={ABORT_DELAY}
+        />
+      </NonceContext.Provider>,
       {
         onShellReady() {
           shellRendered = true;
@@ -110,6 +124,12 @@ function handleBrowserRequest(
           const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
+
+          if (process.env.NODE_ENV === 'production') {
+            addSecurityHeaders(responseHeaders, cspNonce);
+            sanitizeHeaders(responseHeaders)
+          }
+
 
           resolve(
             new Response(stream, {

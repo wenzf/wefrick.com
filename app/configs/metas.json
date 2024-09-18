@@ -1,0 +1,56 @@
+{
+    "home": {
+        "t": "Personal Website - Wenzel Frick",
+        "d": "A interactive visualization of Conway's Game of Life. And the personal website of Wenzel Frick, who develops web solutions."
+    },
+    "welcome": {
+        "t": "Welcome to my website - Wenzel Frick",
+        "d": "Welcome to my personal website. I develop web apps. Get information about my skills and contact me for collaboration."
+    },
+    "work": {
+        "t": "Work and skillset of Wenzel Frick",
+        "d": "I build websites with React or from scratch with a focus on accessibility, pagespeed, data visualization, and on-page SEO."
+    },
+    "stuff": {
+        "t": "Stuff and web projects by Wenzel Frick",
+        "d": "A selection of prototypes and experiments built with React / Remix, primarily to learn about search engine indexing and the impact of code on search performance."
+    },
+    "stuff_items": {
+        "inzh": {
+            "t": "In Zürich",
+            "d": "A web experiment using open Government Data of Zurich (Switzerland) on touristic places and the Cantonal Council."
+        },
+        "opendata-sg": {
+            "t": "OpenData SG",
+            "d": "A open data and web experiment using media releases of St. Gallen (Switzerland) using data from Rest APIs."
+        },
+        "clinic": {
+            "t": "Clinic Homepage Demo",
+            "d": "Demo homepage of a fictitious clinic, with accessibility and safety best-practices applied."
+        },
+        "ecsmap": {
+            "t": "ECS Map",
+            "d": "An interactive map of charging stations for electric cars in Switzerland and surrounding areas."
+        },
+        "diplomacy-game": {
+            "t": "DPLMC",
+            "d": "A platform to play the Diplomacy boardgame online with additional features for the community."
+        },
+        "people-nature-stones": {
+            "t": "People Nature Stones",
+            "d": "A travel blog with an interactive map. Part of a project to develop an easy-to-use standalone CMS that could serve as an alternative to WordPress."
+        },
+        "msaidx": {
+            "t": "MSA.IDX",
+            "d": "A website for monitoring public opinion with sentiment analysis based on Reddit posts and comments, in real time and with custom configurations."
+        },
+        "disruption-department": {
+            "t": "Disruption Department",
+            "d": "Using a domain with a partially spammy history for a multilingual research article summary site to generate organic traffic."
+        },
+        "rxsearch": {
+            "t": "RxSearch",
+            "d": "What happens when a domain that was previously used for an online pharmacy and has a spammy history is used as a search site for RxNorm drugs?"
+        }
+    }
+}
